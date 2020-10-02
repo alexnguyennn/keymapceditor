@@ -34,7 +34,7 @@
         "mobx-react-devtools": "^4.2.15",
         "mocha": "^3.4.2",
         "ncp": "^2.0.0",
-        "node-sass": "^4.11.0",
+        "node-sass": "^4.12.0",
         "postcss-loader": "^2.0.5",
         "prettier": "^1.5.2",
         "react-hot-loader": "next",
@@ -53,8 +53,7 @@
     "scripts": {
         "start": "node build.js --development",
         "build": "node build.js",
-        "publish":
-            "node build.js && dir ..\\ciantic.github.com\\keymapceditor && ncp build ..\\ciantic.github.com\\keymapceditor && git -C ..\\ciantic.github.com commit -a -m \"keymapceditor...\" && git -C ..\\ciantic.github.com push",
+        "publish": "node build.js && dir ..\\ciantic.github.com\\keymapceditor && ncp build ..\\ciantic.github.com\\keymapceditor && git -C ..\\ciantic.github.com commit -a -m \"keymapceditor...\" && git -C ..\\ciantic.github.com push",
         "testwatch": "karma start karma.config.js"
     }
 }

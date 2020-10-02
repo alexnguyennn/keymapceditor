@@ -52,6 +52,8 @@ const get = url => {
  *
  * @returns {Promise<{[key: string]: any}>}
  */
+// TODO: paginate keyboard info fetch loop for details
+// currently only fetches 500 of ~1000 results
 const getInfoJsonMap = async (clearCache = false) => {
     console.log("Downloading info.json listing from GitHub...");
     /** @type {{items: {html_url: string}[]}[]} */
