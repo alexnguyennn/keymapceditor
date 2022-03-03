@@ -74,6 +74,9 @@ const getInfoJsonMap = async (clearCache = false) => {
             "https://api.github.com/search/code?q=filename:info.json+repo:qmk/qmk_firmware&per_page=100&page=5"
         ),
         get(
+            "https://api.github.com/search/code?q=filename:info.json+repo:qmk/qmk_firmware+path:keyboards/moonlander"
+        ),
+        get(
             "https://api.github.com/search/code?q=filename:info.json+repo:qmk/qmk_firmware+path:keyboards/hotdox"
         ),
     ]);
