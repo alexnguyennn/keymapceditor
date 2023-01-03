@@ -16,7 +16,7 @@ describe("qmk functions", () => {
         expect(omit(qmkExecutor.functions.LALT("KC_NO"), ["getKeycapText"])).to.be.deep.equal({
             type: "modresult",
             keycode: "KC_NO",
-            mods: ["KC_LALT"],
+            mods: ["KC_LEFT_ALT"],
             modifierText: "Alt",
             rendered: { centered: "Alt", bottomcenter: false },
         });
@@ -27,16 +27,16 @@ describe("qmk functions", () => {
         expect(omit(qmkExecutor.functions.LALT(inner), ["getKeycapText"])).to.be.deep.equal({
             type: "modresult",
             keycode: "KC_NO",
-            mods: ["KC_LSHIFT", "KC_LALT"],
+            mods: ["KC_LEFT_SHIFT", "KC_LEFT_ALT"],
             modifierText: "Sft+Alt",
             rendered: { centered: "Sft+Alt", bottomcenter: false },
         });
     });
     it("modifier combinations LALT", () => {
-        expect(omit(qmkExecutor.functions.LALT("KC_LSHIFT"), ["getKeycapText"])).to.be.deep.equal({
+        expect(omit(qmkExecutor.functions.LALT("KC_LEFT_SHIFT"), ["getKeycapText"])).to.be.deep.equal({
             type: "modresult",
             keycode: "KC_NO",
-            mods: ["KC_LSHIFT", "KC_LALT"],
+            mods: ["KC_LEFT_SHIFT", "KC_LEFT_ALT"],
             modifierText: "Sft+Alt",
             rendered: { centered: "Sft+Alt", bottomcenter: false },
         });

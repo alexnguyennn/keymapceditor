@@ -195,19 +195,19 @@ export class LanguageMapping implements ILanguageMapping {
     ): string | null => {
         if (mods.length === 1) {
             // Shifted symbol in CSV
-            if (mods[0] === "KC_LSHIFT" || mods[0] === "KC_RSHIFT") {
+            if (mods[0] === "KC_LEFT_SHIFT" || mods[0] === "KC_RIGHT_SHIFT") {
                 return this.getSymbol("shifted", usbcode);
             }
 
             // Altgr symbol in CSV
-            if (mods[0] === "KC_RALT") {
+            if (mods[0] === "KC_RIGHT_ALT") {
                 return this.getSymbol("altgr", usbcode);
             }
         } else if (mods.length === 2) {
             // Altgrshifted symbol in CSV
             if (
-                mods.indexOf("KC_RALT") !== -1 &&
-                (mods.indexOf("KC_LSHIFT") !== -1 || mods.indexOf("KC_RSHIFT") !== -1)
+                mods.indexOf("KC_RIGHT_ALT") !== -1 &&
+                (mods.indexOf("KC_LEFT_SHIFT") !== -1 || mods.indexOf("KC_RIGHT_SHIFT") !== -1)
             ) {
                 return this.getSymbol("altgrshifted", usbcode);
             }

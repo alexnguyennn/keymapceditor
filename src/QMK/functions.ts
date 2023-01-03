@@ -97,14 +97,14 @@ const modifierTextShortened = (mods: modifierkeytype[]) => {
 
 const singleLetterModifierOrdering = (modifiers: modifierkeytype[]) => {
     let preferredOrdering: modifierkeytype[] = [
-        "KC_LCTRL",
-        "KC_RCTRL",
-        "KC_LSHIFT",
-        "KC_RSHIFT",
-        "KC_LALT",
-        "KC_RALT",
-        "KC_LGUI",
-        "KC_RGUI",
+        "KC_LEFT_CTRL",
+        "KC_RIGHT_CTRL",
+        "KC_LEFT_SHIFT",
+        "KC_RIGHT_SHIFT",
+        "KC_LEFT_ALT",
+        "KC_RIGHT_ALT",
+        "KC_LEFT_GUI",
+        "KC_RIGHT_GUI",
     ];
     let copy = modifiers.slice();
     copy.sort((a, b) => {
@@ -117,23 +117,23 @@ const longNameModifier = (modifier: modifierkeytype | modtapmodifierstype) => {
     switch (modifier) {
         case "MOD_RALT":
         case "MOD_LALT":
-        case "KC_RALT":
-        case "KC_LALT":
+        case "KC_RIGHT_ALT":
+        case "KC_LEFT_ALT":
             return LANGS.Alt;
         case "MOD_RCTL":
         case "MOD_LCTL":
-        case "KC_RCTRL":
-        case "KC_LCTRL":
+        case "KC_RIGHT_CTRL":
+        case "KC_LEFT_CTRL":
             return LANGS.Ctrl;
         case "MOD_LGUI":
         case "MOD_RGUI":
-        case "KC_RGUI":
-        case "KC_LGUI":
+        case "KC_RIGHT_GUI":
+        case "KC_LEFT_GUI":
             return LANGS.Win;
         case "MOD_RSFT":
         case "MOD_LSFT":
-        case "KC_RSHIFT":
-        case "KC_LSHIFT":
+        case "KC_RIGHT_SHIFT":
+        case "KC_LEFT_SHIFT":
             return LANGS.Shift;
         case "MOD_HYPR":
             return LANGS.Hyper;
@@ -147,23 +147,23 @@ const threeLetterModifier = (modifier: modifierkeytype | modtapmodifierstype) =>
     switch (modifier) {
         case "MOD_RALT":
         case "MOD_LALT":
-        case "KC_RALT":
-        case "KC_LALT":
+        case "KC_RIGHT_ALT":
+        case "KC_LEFT_ALT":
             return LANGS.AltThreeLetter;
         case "MOD_RCTL":
         case "MOD_LCTL":
-        case "KC_RCTRL":
-        case "KC_LCTRL":
+        case "KC_RIGHT_CTRL":
+        case "KC_LEFT_CTRL":
             return LANGS.CtrlThreeLetter;
         case "MOD_LGUI":
         case "MOD_RGUI":
-        case "KC_RGUI":
-        case "KC_LGUI":
+        case "KC_RIGHT_GUI":
+        case "KC_LEFT_GUI":
             return LANGS.WinThreeLetter;
         case "MOD_RSFT":
         case "MOD_LSFT":
-        case "KC_RSHIFT":
-        case "KC_LSHIFT":
+        case "KC_RIGHT_SHIFT":
+        case "KC_LEFT_SHIFT":
             return LANGS.ShiftThreeLetter;
     }
     return modifier;
@@ -172,17 +172,17 @@ const threeLetterModifier = (modifier: modifierkeytype | modtapmodifierstype) =>
 // Single letter modifier abbreviations
 const singleLetterModifier = (modifier: modifierkeytype) => {
     switch (modifier) {
-        case "KC_RALT":
-        case "KC_LALT":
+        case "KC_RIGHT_ALT":
+        case "KC_LEFT_ALT":
             return LANGS.AltSingleLetter;
-        case "KC_RCTRL":
-        case "KC_LCTRL":
+        case "KC_RIGHT_CTRL":
+        case "KC_LEFT_CTRL":
             return LANGS.CtrlSingleLetter;
-        case "KC_RGUI":
-        case "KC_LGUI":
+        case "KC_RIGHT_GUI":
+        case "KC_LEFT_GUI":
             return LANGS.WinSingleLetter;
-        case "KC_RSHIFT":
-        case "KC_LSHIFT":
+        case "KC_RIGHT_SHIFT":
+        case "KC_LEFT_SHIFT":
             return LANGS.ShiftSingleLetter;
     }
     return modifier;
@@ -195,7 +195,7 @@ const _MOD = (
     if (isKeycode(kc)) {
         let kcn = normalizeKeycode(kc);
         let mods = [key];
-        // Called using syntax: LALT(KC_LSHIFT), this is translated to
+        // Called using syntax: LALT(KC_LEFT_SHIFT), this is translated to
         // LALT(LSFT(KC_NO)) equivalent
         if (isModifierKeytype(kcn)) {
             mods = [kcn, key];
@@ -297,21 +297,21 @@ const MEH_T = (kc: keycode) => _MT(MEH(kc));
 const SCMD_T = (kc: keycode) => _MT(LSFT(LGUI(kc)));
 const SWIN_T = (kc: keycode) => _MT(LSFT(LGUI(kc)));
 
-const LCTL = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_LCTRL");
-const LSFT = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_LSHIFT");
-const LALT = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_LALT");
-const LGUI = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_LGUI");
-const RCTL = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_RCTRL");
-const RSFT = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_RSHIFT");
-const RALT = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_RALT");
-const RGUI = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_RGUI");
+const LCTL = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_LEFT_CTRL");
+const LSFT = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_LEFT_SHIFT");
+const LALT = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_LEFT_ALT");
+const LGUI = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_LEFT_GUI");
+const RCTL = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_RIGHT_CTRL");
+const RSFT = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_RIGHT_SHIFT");
+const RALT = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_RIGHT_ALT");
+const RGUI = (kc: keycode | IModResult | IParseError) => _MOD(kc, "KC_RIGHT_GUI");
 const LCAG = (kc: keycode | IModResult | IParseError) => LCTL(LALT(LGUI(kc)));
 const HYPR = (kc: keycode): IModResult | IParseError => {
     if (isKeycode(kc)) {
         return {
             type: "modresult",
             keycode: kc,
-            mods: ["KC_LALT", "KC_LCTRL", "KC_LGUI", "KC_LSHIFT"],
+            mods: ["KC_LEFT_ALT", "KC_LEFT_CTRL", "KC_LEFT_GUI", "KC_LEFT_SHIFT"],
             modifierText: LANGS.Hyper,
             rendered: {
                 centered: (kc === "KC_NO" && LANGS.Hyper) || kc,
@@ -331,7 +331,7 @@ export const MEH = (kc: keycode): IModResult | IParseError => {
         return {
             type: "modresult",
             keycode: kc,
-            mods: ["KC_LALT", "KC_LCTRL", "KC_LSHIFT"],
+            mods: ["KC_LEFT_ALT", "KC_LEFT_CTRL", "KC_LEFT_SHIFT"],
             modifierText: LANGS.Meh,
             rendered: {
                 centered: (kc === "KC_NO" && LANGS.Meh) || kc,
@@ -382,12 +382,12 @@ const functionExpansions = {
     KC_RPRN: LSFT("KC_0"),
     KC_UNDS: LSFT("KC_MINUS"),
     KC_PLUS: LSFT("KC_EQUAL"),
-    KC_LCBR: LSFT("KC_LBRACKET"),
-    KC_RCBR: LSFT("KC_RBRACKET"),
+    KC_LCBR: LSFT("KC_LEFT_BRACKET"),
+    KC_RCBR: LSFT("KC_RIGHT_BRACKET"),
     KC_LABK: LSFT("KC_COMMA"),
     KC_RABK: LSFT("KC_DOT"),
-    KC_COLN: LSFT("KC_SCOLON"),
-    KC_PIPE: LSFT("KC_BSLASH"),
+    KC_COLN: LSFT("KC_SEMICOLON"),
+    KC_PIPE: LSFT("KC_BACKSLASH"),
     KC_LT: LSFT("KC_COMMA"),
     KC_GT: LSFT("KC_DOT"),
     KC_QUES: LSFT("KC_SLASH"),

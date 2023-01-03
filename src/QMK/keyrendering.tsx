@@ -79,7 +79,7 @@ export const renderKeycapText = (expr: QmkFunctionResult, defaultValue: KeycapTe
 const knownRenderings = {
     KC_NO: {},
     KC_ROLL_OVER: {},
-    KC_BSPACE: {
+    KC_BACKSPACE: {
         centered: <span style={{ fontSize: "130%" }}>⌫</span>,
     },
     KC_ENTER: {
